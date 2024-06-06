@@ -17,13 +17,13 @@
 1. 由于demo使用了SDL2图形库，若要使用该功能，需要配置SDL2开发环境，如：
 
 ```shell
-sudo apt install libstd2-dev
+sudo apt install libsdl2-dev
 ```
 
 2. 项目使用Makefile编译：
 ```shell
 git clone https://github.com/myy5981/FNN.git
-cd FNN
+cd FNN/
 make
 ```
 
