@@ -10,6 +10,7 @@ void print_matrix(FMATRIX m, int row, int col);
  * 后两个参数指定矩阵的维度，A为为row行col列矩阵，b为col维列向量
  * 计算结果r为row维列向量，调用者应确保R有足够的空间，以免产生溢出
  * 调用fmatrix_mul_v(r,A,b,row,col)等价于调用fmatrix_mul(r,A,b,row,col,1)
+ * r、A、b不可存在内存重叠
  */
 void fmatrix_mul_v(FVECTOR r, FMATRIX A, FVECTOR b, int row, int col);
 
@@ -17,6 +18,7 @@ void fmatrix_mul_v(FVECTOR r, FMATRIX A, FVECTOR b, int row, int col);
  * 计算矩阵A的转置与向量b的乘积保存在r中：r = A^T * b
  * 后两个参数指定矩阵的维度，A为为row行col列矩阵，b为row维列向量
  * 计算结果r为col维列向量，调用者应确保R有足够的空间，以免产生溢出
+ * r、A、b不可存在内存重叠
  */
 void fmatrix_t_mul_v(FVECTOR r, FMATRIX A, FVECTOR b, int row, int col);
 
@@ -24,6 +26,7 @@ void fmatrix_t_mul_v(FVECTOR r, FMATRIX A, FVECTOR b, int row, int col);
  * 计算向量a乘以向量b的转置保存在矩阵R中：R = a * b^T
  * 后两个参数指定向量的维度，a为row维列向量，b为col维列向量
  * 计算结果R为row行col列矩阵，调用者应确保R有足够的空间，以免产生溢出
+ * R、a、b不可存在内存重叠
  */
 void fvector_mul_vt(FMATRIX R, FVECTOR a, FVECTOR b, int row, int col);
 

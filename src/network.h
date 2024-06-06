@@ -12,16 +12,45 @@ typedef struct fnn_s {
     const loss_func_t* loss;
 } fnn_t;
 
+/**
+ * 新建fnn，使用malloc分配内存
+ * rate：学习率
+ * loss：误差函数
+*/
 fnn_t* new_fnn(float rate,const loss_func_t* loss);
 
+/**
+ * 向fnn添加神经元层，其中使用malloc分配内存
+ * input_num：输入规模
+ * output_num：输出规模
+ * act_func：激活函数
+*/
 void fnn_add_layer(fnn_t* fnn, int input_num, int output_num,const activation_func_t* act_func);
 
+/**
+ * 前向传播，返回指针指向输出层的输出，其内存为fnn_add_layer时分配的内存，无需free
+ * input：输入数据
+*/
 FVECTOR fnn_forward(fnn_t* fnn, FVECTOR input);
 
+/**
+ * 误差反向传播，并更新权重和偏置
+*/
 void fnn_backward(fnn_t* fnn, FVECTOR real_output);
 
+/**
+ * 释放神经网络内存
+*/
+void fnn_destory(fnn_t* fnn);
+
+/**
+ * 将神经网络参数序列化输出到path指定的路径
+*/
 void fnn_serialize(fnn_t* fnn, const char* path);
 
+/**
+ * 从path指定的路径中读取神经网络参数，其中使用malloc分配内存
+*/
 fnn_t* fnn_deserialize(const char* path);
 
 #endif

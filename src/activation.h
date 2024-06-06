@@ -12,6 +12,8 @@ typedef struct activation_func_s {
     void (*weight_init)(FMATRIX W, FVECTOR b, int row, int col);
 } activation_func_t;
 
+/* 激活函数通过导出结构体指针在此注册 */
+
 #define SOFTMAX softmax
 extern const activation_func_t* softmax;
 
