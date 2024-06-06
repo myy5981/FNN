@@ -43,14 +43,4 @@ void fnn_backward(fnn_t* fnn, FVECTOR real_output);
 */
 void fnn_destory(fnn_t* fnn);
 
-/**
- * 将神经网络参数序列化输出到path指定的路径
-*/
-void fnn_serialize(fnn_t* fnn, const char* path);
-
-/**
- * 从path指定的路径中读取神经网络参数，其中使用malloc分配内存
-*/
-fnn_t* fnn_deserialize(const char* path);
-
 #endif

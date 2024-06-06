@@ -1,5 +1,7 @@
 #include "network.h"
+#include "endian.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 
 fnn_t* new_fnn(float rate,const loss_func_t* loss) {
@@ -92,8 +94,13 @@ void fnn_backward(fnn_t* fnn, FVECTOR real_output) {
     free(err);
 }
 
-void fnn_serialize(fnn_t* fnn, const char* path) {}
-
-fnn_t* fnn_deserialize(const char* path) {
-    return NULL;
+void fnn_destory(fnn_t* fnn){
+    layer_t* l = fnn->head;
+    while(l!=NULL){
+        free(l->W);
+        free(l->b);
+        free(l->output);
+        l=l->next;
+    }
+    free(fnn);
 }

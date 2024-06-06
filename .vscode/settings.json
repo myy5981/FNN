@@ -2,6 +2,7 @@
     "files.associations": {
         "*.h": "c",
         "*.tcc": "c",
-        "cmath": "c"
+        "cmath": "c",
+        "cstdint": "c"
     }
 }

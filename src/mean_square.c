@@ -14,6 +14,9 @@ void mean_square_loss_derivative(FVECTOR loss_err, FVECTOR output, FVECTOR real_
     }
 }
 
-static const loss_func_t mean_square_s = {.loss_func = mean_square_loss_func, .loss_derivative = mean_square_loss_derivative};
+static const loss_func_t mean_square_s = {
+    .loss_func = mean_square_loss_func,
+    .loss_derivative = mean_square_loss_derivative
+};
 
 const loss_func_t* mean_square = &mean_square_s;
