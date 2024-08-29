@@ -9,8 +9,8 @@
 fnn_t* fnn;
 
 void test(int time) {
-    FILE* t10k_images = fopen("./mnist/t10k-images.idx3-ubyte", "rb");
-    FILE* t10k_lables = fopen("./mnist/t10k-labels.idx1-ubyte", "rb");
+    FILE* t10k_images = fopen("./MNIST/raw/t10k-images-idx3-ubyte", "rb");
+    FILE* t10k_lables = fopen("./MNIST/raw/t10k-labels-idx1-ubyte", "rb");
     if (t10k_images == NULL || t10k_lables == NULL) {
         perror("fopen");
         exit(1);
@@ -57,8 +57,8 @@ int main(void) {
     fnn_add_layer(fnn, 64, 64, RELU);
     fnn_add_layer(fnn, 64, 10, SOFTMAX);
 
-    FILE* train_images = fopen("./mnist/train-images.idx3-ubyte", "rb");
-    FILE* train_lables = fopen("./mnist/train-labels.idx1-ubyte", "rb");
+    FILE* train_images = fopen("./MNIST/raw/train-images-idx3-ubyte", "rb");
+    FILE* train_lables = fopen("./MNIST/raw/train-labels-idx1-ubyte", "rb");
     if (train_images == NULL || train_lables == NULL) {
         perror("fopen");
         return 0;
